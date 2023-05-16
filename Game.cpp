@@ -1,6 +1,6 @@
 #include "Game.hpp"
-
-
+#include "Paddle.h"
+Paddle* player1;
 Game::Game()
 {}
 Game::~Game()
@@ -36,9 +36,11 @@ void Game::init(const char* title, int xPos, int yPos, int width, int height, bo
 	{
 		running = false;
 	}
+
+	player1 = new Paddle(renderer);
 }
 
-void Game::handleEvents()
+void Game::handleEvents(Uint64 deltaTime)
 {
 	SDL_Event evnt;
 	SDL_PollEvent(&evnt);
@@ -52,15 +54,22 @@ void Game::handleEvents()
 	}
 }
 
-void Game::update()
+void Game::LoadContent()
 {
-	cnt++;
-	std::cout << cnt << std::endl;
+	
 }
 
-void Game::render()
+void Game::update(Uint64 deltaTime)
+{
+	
+	std::cout << deltaTime << std::endl;
+}
+
+void Game::render(Uint64 deltaTime)
 {
 	SDL_RenderClear(renderer);
+	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+	SDL_RenderCopy(renderer, player1->texture, NULL, &player1->sprite);
 	// add stuff to render
 	SDL_RenderPresent(renderer);
 }

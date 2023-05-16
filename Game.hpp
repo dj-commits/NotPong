@@ -22,15 +22,15 @@ public:
 	~Game();
 
 	void init(const char* title, int xPos, int yPos, int width, int height, bool fullscreen);
-	void handleEvents();
-	void update();
-	void render();
+	void handleEvents(Uint64 deltaTime);
+	void LoadContent();
+	void update(Uint64 deltaTime);
+	void render(Uint64 deltaTime);
 	void clean();
 
 	bool isRunning() { return running; }
 
 private:
-	int cnt;
 	bool running;
 
 	SDL_Window* window;
