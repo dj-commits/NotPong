@@ -2,7 +2,7 @@
 #include "Game.hpp"
 
 Game* game = nullptr;
-Uint64 minimumFPS = (1000 / 6);
+Uint64 minimumFPS = (1000 / 60);
 Uint64 lastTime = SDL_GetTicks64();
 int main()
 {
