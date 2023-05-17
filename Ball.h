@@ -12,7 +12,11 @@ public:
 	SDL_Texture* texture;
 	SDL_Rect sprite;
 	Vec2 position;
-
+	Vec2 *velocity;
 	void Move(Uint64 deltaTime);
+
+private:
+	float ballSpeed;
+
 };
 

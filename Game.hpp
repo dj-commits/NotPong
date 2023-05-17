@@ -1,7 +1,7 @@
 //
 //
 // Game.hpp
-// Game Engine Test
+// NotPong
 // Donald Jones, 2023
 //
 //

@@ -13,4 +13,5 @@ Paddle::Paddle(SDL_Renderer* rend)
 	texture = SDL_CreateTextureFromSurface(rend, image);
 	SDL_FreeSurface(image);
 	SDL_QueryTexture(texture, NULL, NULL, &sprite.w, &sprite.h);
+	
 }
