@@ -4,6 +4,7 @@
 /// </summary>
 class Vec2
 {
+public:
 	Vec2() : x(0), y(0) {};
 	Vec2(float x, float y) : x(x), y(y) {};
 	Vec2(const Vec2& v) : x(v.x), y(v.y) {};
@@ -90,7 +91,7 @@ class Vec2
 	
 	~Vec2() {};
 
-public:
+
 	float x;
 	float y;
 };

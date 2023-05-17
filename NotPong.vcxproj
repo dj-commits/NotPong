@@ -19,12 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Ball.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Paddle.cpp" />
     <ClCompile Include="Vec2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Ball.h" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="main.h" />
     <ClInclude Include="Paddle.h" />
@@ -87,8 +89,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\SDL\SDL2_image-2.6.3\SDL2_image-2.6.3\include;C:\SDL\SDL2-2.26.5\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\SDL\SDL2_image-2.6.3\SDL2_image-2.6.3\lib\x64;C:\SDL\SDL2-2.26.5\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\GameDevJourney\C++\External Libraries\SDL\SDL2-2.26.5\include;D:\GameDevJourney\C++\External Libraries\SDL_Image\SDL2_image-2.6.3\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\GameDevJourney\C++\External Libraries\SDL_Image\SDL2_image-2.6.3\lib\x64;D:\GameDevJourney\C++\External Libraries\SDL\SDL2-2.26.5\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

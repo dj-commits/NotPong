@@ -1,6 +1,12 @@
 #include "Game.hpp"
 #include "Paddle.h"
+#include "Ball.h"
+#include <SDL_image.h>
+
+
 Paddle* player1;
+Paddle* player2;
+Ball* ball;
 Game::Game()
 {}
 Game::~Game()
@@ -25,10 +31,16 @@ void Game::init(const char* title, int xPos, int yPos, int width, int height, bo
 			renderer = SDL_CreateRenderer(window, -1, 0);
 			if (renderer)
 			{
-				SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 				std::cout << "SDL Renderer created successfully..." << std::endl;
 
-				running = true;
+				if (IMG_Init(IMG_INIT_PNG) == 2)
+				{
+					std::cout << "SDL_Image created successfully..." << std::endl;
+					
+					
+					running = true;
+				}
+				
 			}
 		}
 	}
@@ -37,7 +49,7 @@ void Game::init(const char* title, int xPos, int yPos, int width, int height, bo
 		running = false;
 	}
 
-	player1 = new Paddle(renderer);
+	
 }
 
 void Game::handleEvents(Uint64 deltaTime)
@@ -56,20 +68,31 @@ void Game::handleEvents(Uint64 deltaTime)
 
 void Game::LoadContent()
 {
-	
+	player1 = new Paddle(renderer);
+	player2 = new Paddle(renderer);
+	ball = new Ball(renderer);
+
+	player1->sprite.x = 25;
+	player1->sprite.y = 300;
+	player2->sprite.x = 750;
+	player2->sprite.y = 300;
+	ball->sprite.x = 400;
+	ball->sprite.y = 300;
 }
 
 void Game::update(Uint64 deltaTime)
 {
-	
-	std::cout << deltaTime << std::endl;
+	ball->Move(deltaTime);
+	//std::cout << deltaTime << std::endl;
 }
 
 void Game::render(Uint64 deltaTime)
 {
 	SDL_RenderClear(renderer);
-	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+	SDL_SetRenderDrawColor(renderer, 128, 128, 128, 255);
 	SDL_RenderCopy(renderer, player1->texture, NULL, &player1->sprite);
+	SDL_RenderCopy(renderer, player2->texture, NULL, &player2->sprite);
+	SDL_RenderCopy(renderer, ball->texture, NULL, &ball->sprite);
 	// add stuff to render
 	SDL_RenderPresent(renderer);
 }
