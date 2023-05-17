@@ -14,11 +14,11 @@ Ball::Ball(SDL_Renderer* rend)
 	SDL_FreeSurface(image);
 	SDL_QueryTexture(texture, NULL, NULL, &sprite.w, &sprite.h);
 
-	ballSpeed = 0.5f;
+	ballSpeed = 10.0f;
 	velocity = new Vec2(ballSpeed, ballSpeed);
 }
 
-void Ball::Move(Uint64 deltaTime)
+void Ball::Move(double deltaTime)
 {
 	
 	int screenWidth = 800;
@@ -41,6 +41,6 @@ void Ball::Move(Uint64 deltaTime)
 	{
 		velocity->y *= -1;
 	}
-	sprite.x += velocity->x;
-	sprite.y += velocity->y;
+	sprite.x += velocity->x * deltaTime;
+	sprite.y += velocity->y * deltaTime;
 }

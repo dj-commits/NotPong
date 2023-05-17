@@ -52,7 +52,7 @@ void Game::init(const char* title, int xPos, int yPos, int width, int height, bo
 	
 }
 
-void Game::handleEvents(Uint64 deltaTime)
+void Game::handleEvents(double deltaTime)
 {
 	SDL_Event evnt;
 	SDL_PollEvent(&evnt);
@@ -80,13 +80,13 @@ void Game::LoadContent()
 	ball->sprite.y = 300;
 }
 
-void Game::update(Uint64 deltaTime)
+void Game::update(double deltaTime)
 {
 	ball->Move(deltaTime);
 	//std::cout << deltaTime << std::endl;
 }
 
-void Game::render(Uint64 deltaTime)
+void Game::render(double deltaTime)
 {
 	SDL_RenderClear(renderer);
 	SDL_SetRenderDrawColor(renderer, 128, 128, 128, 255);

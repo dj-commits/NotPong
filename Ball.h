@@ -13,7 +13,7 @@ public:
 	SDL_Rect sprite;
 	Vec2 position;
 	Vec2 *velocity;
-	void Move(Uint64 deltaTime);
+	void Move(double deltaTime);
 
 private:
 	float ballSpeed;

@@ -22,10 +22,10 @@ public:
 	~Game();
 
 	void init(const char* title, int xPos, int yPos, int width, int height, bool fullscreen);
-	void handleEvents(Uint64 deltaTime);
+	void handleEvents(double deltaTime);
 	void LoadContent();
-	void update(Uint64 deltaTime);
-	void render(Uint64 deltaTime);
+	void update(double deltaTime);
+	void render(double deltaTime);
 	void clean();
 
 	bool isRunning() { return running; }
